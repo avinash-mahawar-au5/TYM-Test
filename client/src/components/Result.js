@@ -6,6 +6,7 @@ class Result extends Component {
   render() {
     return (
       <div>
+        <h3>Employee Details</h3>
         <table className="table">
           <tbody>
             {this.props.finalDetails &&
@@ -13,7 +14,7 @@ class Result extends Component {
                 return (
                   <tr key={i}>
                     <td>{details.finalCurrentEmp}</td>
-                    {details.finaAssignedSurveys.map((surveys, i) => {
+                    {details.finalAssignedSurveys.map((surveys, i) => {
                       return (
                         <tr key={i}>
                           <td>{surveys}</td>

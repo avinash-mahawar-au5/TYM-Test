@@ -18,24 +18,24 @@ export default class Home extends Component {
             </div>
           </div>
           <div className="columns">
-            <div className="column is-12 has-background-primary is-center">
+            <div className="column is-12 has-background-grey-lighter is-center">
               {" "}
               <Employee />{" "}
             </div>
           </div>
           <div className="columns" style={{ marginTop: "90px" }}>
-            <div className="column is-6 has-background-primary ">
+            <div className="column is-6 has-background-grey-lighter ">
               {" "}
               <SurveyList />{" "}
             </div>
-            <div className="column is-6 has-background-primary">
+            <div className="column is-6 has-background-grey-lighter">
               {" "}
               <AssignedSurvey />{" "}
             </div>
           </div>
 
           <div className="columns" style={{ marginTop: "90px" }}>
-            <div className="column is-12 ">
+            <div className="column is-12 has-background-grey-lighter">
               <Result />
             </div>
           </div>

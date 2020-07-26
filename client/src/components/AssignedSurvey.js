@@ -4,25 +4,24 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Button } from "react-bulma-components";
 class AssignedSurvey extends Component {
-  state = {
-    finalAssignedSurveys: [],
-    finalCurrentEmp: "",
-  };
+  state = {};
 
-  handleDone = () => {
+  handleDone = async () => {
     const finalData = {
       finalCurrentEmp: this.props.currentEmp,
-      finaAssignedSurveys: this.props.assignedSurveys,
+      finalAssignedSurveys: this.props.assignedSurveys,
     };
-    if (!this.props.finalDetails.includes(finalData)) {
+
+    console.log(finalData);
+    if (finalData.finalCurrentEmp && finalData.finalAssignedSurveys) {
       this.props.EmployeeDetails(finalData);
     } else {
-      alert("Surveys are already assigned to this Employee");
+      alert("Please Choose");
     }
   };
 
-  removeSurvey = (i) => {
-    console.log(i);
+  removeSurvey = (el) => {
+    console.log(el);
   };
   render() {
     return (
@@ -40,12 +39,15 @@ class AssignedSurvey extends Component {
                   {this.props.assignedSurveys &&
                     this.props.assignedSurveys.map((el, i) => {
                       return (
-                        <tr key={el}>
-                          <td>{el}</td>
+                        <tr key={i}>
                           <td>
-                            <Button onClick={(el) => this.removeSurvey(el)}>
-                              Remove
-                            </Button>
+                            {el}{" "}
+                            <span className="" style={{ marginLeft: "200px" }}>
+                              {" "}
+                              <Button onClick={this.removeSurvey(el)}>
+                                Remove
+                              </Button>
+                            </span>
                           </td>
                         </tr>
                       );
@@ -57,7 +59,11 @@ class AssignedSurvey extends Component {
         </div>
         <div className="colulmns">
           <div className="colulmn">
-            <Button className="mr-3 is-rounded" onClick={this.handleDone}>
+            <Button
+              className="mr-3 is-rounded is-info is-outlined"
+              onClick={this.handleDone}
+              // disabled={!this.props.assignedSurveys || !this.props.currentEmp}
+            >
               Done
             </Button>
           </div>

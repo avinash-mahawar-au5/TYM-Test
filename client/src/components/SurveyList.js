@@ -65,6 +65,7 @@ class Survey extends Component {
                       <td>{info.surveyName}</td>
                       <td>
                         <Button
+                          className="is-success is-outlined"
                           onClick={(e) => this.newSurvey(info.surveyName)}
                         >
                           Add
